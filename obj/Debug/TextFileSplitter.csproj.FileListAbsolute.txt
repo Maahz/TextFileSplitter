@@ -1,0 +1,7 @@
+C:\Users\Markku\Source\repos\TextFileSplitter\bin\Debug\TextFileSplitter.exe.config
+C:\Users\Markku\Source\repos\TextFileSplitter\bin\Debug\TextFileSplitter.exe
+C:\Users\Markku\Source\repos\TextFileSplitter\bin\Debug\TextFileSplitter.pdb
+C:\Users\Markku\Source\repos\TextFileSplitter\obj\Debug\TextFileSplitter.csprojAssemblyReference.cache
+C:\Users\Markku\Source\repos\TextFileSplitter\obj\Debug\TextFileSplitter.csproj.CoreCompileInputs.cache
+C:\Users\Markku\Source\repos\TextFileSplitter\obj\Debug\TextFileSplitter.exe
+C:\Users\Markku\Source\repos\TextFileSplitter\obj\Debug\TextFileSplitter.pdb
