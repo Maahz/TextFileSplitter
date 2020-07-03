@@ -17,55 +17,33 @@ namespace TextFileSplitter
         static void Main(string[] args)
         {
             
+            //Split file address to get file name
             try
             {
                 file = args[0].Split('\\');
                 for (int i = 0; i < file.Length - 1; i++)
                 {
-                    path += file[i]+"\\";
+                    path += file[i]+"\\";  //Merge it back to new global variable for later use.
                 }
             }
             catch (Exception)
             {
                 throw;
             }
+            //Make sure that the string recieved was a file path.
             if (!Directory.Exists(path))
             {
                 return;
             }
 
-            Thread count = new Thread(() => counter(args[0]));
-            count.Start();
-            Console.WriteLine("Waiting for counter to finnish...");
-            count.Join();
-            int area = COUNT / 10;
-            for (int i = 0; i < 10; i++)
-            {
-                Thread runner = new Thread(() => Runner(args[0], area, i));
-                runner.Start();
-            }
-            
-
-            Console.WriteLine("Press ENTER To Exit");
-            Console.Read();
-        }
-
-        private static void counter(string path)
-        {
-            COUNT = File.ReadLines(path).Count();
-        }
-
-        private static void Runner(string path,int area, int id)
-        {
-            int start = area * id;
-            for (int i = 0; i < area; i++)
+            for (int i = 0; i >= 0; i++)
             {
                 try
                 {
+                    //Take 1M new lines and skip the ones already appended
                     var firstLines = File.ReadLines(path).Skip(i * 1000000).Take(1000000).ToArray();
-                    File.AppendAllLines(outputFile + "file"+id+"(" + i + 1 + ").txt", firstLines);
+                    File.AppendAllLines(outputFile + "file(" + i + 1 + ").txt", firstLines);
                     Console.Write("File: " + i + "\r");
-
                 }
                 catch (Exception e)
                 {
@@ -75,6 +53,9 @@ namespace TextFileSplitter
                 }
 
             }
+
+            Console.WriteLine("Press ENTER To Exit");
+            Console.Read();
         }
     }
 }
