@@ -41,7 +41,7 @@ namespace TextFileSplitter
             int area = COUNT / 10;
             for (int i = 0; i < 10; i++)
             {
-                Thread runner = new Thread(() => Runner(args[0],area, i));
+                Thread runner = new Thread(() => Runner(args[0], area, i));
                 runner.Start();
             }
             
