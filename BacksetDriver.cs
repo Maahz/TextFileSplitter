@@ -18,9 +18,11 @@ namespace TextFileSplitter
             }
         }
 
+        public static int i = 0;
         internal static void Work()
         {
-            for (int i = 0; i >= 0; i++)
+            
+            for(i = i; i >= 0; i++)
             {
                 try
                 {
@@ -32,7 +34,7 @@ namespace TextFileSplitter
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Console.WriteLine(e.Message);
                     Console.Read();
                     return;
                 }

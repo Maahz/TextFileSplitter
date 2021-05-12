@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace TextFileSplitter
 {
@@ -42,7 +43,10 @@ namespace TextFileSplitter
              * Take part of the file and split.
              * 
              **********************************************************/
-            BacksetDriver.Work();
+            Task[] tasks = new Task[2];
+            tasks[0] = Task.Factory.StartNew(() => BacksetDriver.Work());
+            tasks[1] = Task.Factory.StartNew(() => BacksetDriver.Work());
+
             
             Console.WriteLine("Press ENTER To Exit");
             Console.Read();
