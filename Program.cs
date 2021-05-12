@@ -36,24 +36,14 @@ namespace TextFileSplitter
                 return;
             }
 
-            for (int i = 0; i >= 0; i++)
-            {
-                try
-                {
-                    //Take 1M new lines and skip the ones already appended
-                    var firstLines = File.ReadLines(Setup._path).Skip(i * 1000000).Take(1000000).ToArray();
-                    File.AppendAllLines(Setup._outputFile + "file(" + i + 1 + ").txt", firstLines);
-                    Console.Write("File: " + i + "\r");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    Console.Read();
-                    return;
-                }
-
-            }
-
+            /**********************************************************
+             * 
+             * Actual magic is in here. 
+             * Take part of the file and split.
+             * 
+             **********************************************************/
+            BacksetDriver.Work();
+            
             Console.WriteLine("Press ENTER To Exit");
             Console.Read();
         }
